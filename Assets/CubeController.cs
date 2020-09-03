@@ -26,10 +26,13 @@ public class CubeController : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider collision) {
-		//地面と接触した場合
-		if (gameObject.tag == "Ground" | gameObject.tag == "Cube") {
+	void OnCollisionEnter2D(Collision2D collision) {
+		//接触した相手を判別
+		string yourTag = collision.gameObject.tag;
+
+		//地面と接触した場合とキューブ同士が接触した場合に効果音を鳴らす
+		if (collision.gameObject.tag == "Ground" | yourTag == "Cube") {
 			GetComponent<AudioSource> ().volume = 1;
-		}
+		} 
 	}
 }
