@@ -31,8 +31,8 @@ public class CubeController : MonoBehaviour {
 		string yourTag = collision.gameObject.tag;
 
 		//地面と接触した場合とキューブ同士が接触した場合に効果音を鳴らす
-		if (collision.gameObject.tag == "Ground" | yourTag == "Cube") {
-			GetComponent<AudioSource> ().volume = 1;
+		if (yourTag == "Ground" || yourTag == "Cube") {
+			GetComponent<AudioSource> ().Play();
 		} 
 	}
 }
